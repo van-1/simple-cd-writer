@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="edit-clear.png">3rdparty/edit-clear.png</file>
+        <file alias="media-optical-burn.png">3rdparty/media-optical-burn.png</file>
+        <file alias="add.png">3rdparty/add.png</file>
+    </qresource>
+</RCC>
