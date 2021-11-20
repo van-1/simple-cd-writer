@@ -13,7 +13,7 @@
 #include "CdBurner_p.h"
 
 static const char* cmdToFindDrivers = "/usr/bin/xorrecord --devices";
-static const char* cmdToGenIsoImage = "/usr/bin/genisoimage -joliet-long -U -r -o";
+static const char* cmdToGenIsoImage = "/usr/bin/genisoimage -f -joliet-long -U -r -o";
 static const char* dirToStoreTmpIsoImage = "/tmp";
 static const char* cmdToBurnCd = "/usr/bin/xorrecord -v dev=%1 blank=as_needed";
 static const char* bounds = "-----------------------------------------------------------------------------";
@@ -168,7 +168,7 @@ void CdBurner_P::createTmpRootDir(const QStringList& filesList, const QString& d
     QString tmp_path = finfo.absolutePath();
     auto new_path_in_tmp = tmp_path.remove(0, baseDir.length());
     tmp_iso_dir.mkpath(dirName + "/" + new_path_in_tmp);
-    QFile::copy(*it, dirName + "/" + new_path_in_tmp + "/" + finfo.fileName());
+    QFile::link(*it, dirName + "/" + new_path_in_tmp + "/" + finfo.fileName());
   }
 }
 
